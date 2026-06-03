@@ -182,3 +182,21 @@
     border-right-color: var(--border);
   }
 }
+
+.tool-card {
+  transition: all 0.3s ease;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.tool-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px 0 rgba(31, 38, 135, 0.15);
+  border-color: var(--accent-border);
+}

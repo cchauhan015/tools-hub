@@ -1,15 +1,26 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --text: #4b5563;
+  --text-h: #111827;
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+  --accent: #8b5cf6;
+  --accent-bg: rgba(139, 92, 246, 0.1);
+  --accent-border: rgba(139, 92, 246, 0.3);
+  --social-bg: rgba(243, 244, 246, 0.5);
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  
+  /* Modern / Glass Additions */
+  --body-bg: radial-gradient(circle at 0% 0%, rgba(255, 182, 255, 0.2) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.2) 0%, transparent 50%), radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.2) 0%, transparent 50%), #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  
+  /* Colorful Gradients */
+  --gradient-1: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  --gradient-2: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-3: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -34,15 +45,20 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --bg: #1f2937;
+    --border: #374151;
+    --code-bg: #111827;
+    --accent: #a78bfa;
+    --accent-bg: rgba(167, 139, 250, 0.15);
+    --accent-border: rgba(167, 139, 250, 0.3);
+    --social-bg: rgba(31, 41, 55, 0.5);
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    
+    /* Modern / Glass Additions */
+    --body-bg: radial-gradient(circle at 0% 0%, rgba(255, 182, 255, 0.15) 0%, transparent 50%), radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 50%), #111827;
+    --glass-bg: rgba(31, 41, 55, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   }
 
   #social .button-icon {
@@ -52,18 +68,20 @@
 
 body {
   margin: 0;
+  background: var(--body-bg);
+  background-attachment: fixed;
+  color: var(--text);
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  padding: 0 1rem;
 }
 
 h1,
@@ -74,12 +92,20 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
+  font-size: 64px;
+  letter-spacing: -2px;
+  margin: 48px 0 16px;
+  font-weight: 800;
+  background: linear-gradient(to right, #ff0080, #ff8c00, #40e0d0, #ff0080);
+  background-size: 300% 300%;
+  animation: colorFlow 8s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
   @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+    font-size: 42px;
+    margin: 32px 0 12px;
   }
 }
 h2 {
@@ -108,4 +134,16 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+@keyframes colorFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.colorful-badge {
+  background: linear-gradient(90deg, rgba(255,0,128,0.1) 0%, rgba(64,224,208,0.1) 100%) !important;
+  color: #ff0080 !important;
+  border: 1px solid rgba(255,0,128,0.2) !important;
 }
