@@ -17,6 +17,13 @@ const Home = () => {
                             path="/age-calculator"
                         />
                     </div>
+                    <div className="col-12 md:col-4">
+                        <ToolCard
+                            title="Image to PDF"
+                            description="Convert images to a PDF file."
+                            path="/image-to-pdf"
+                        />
+                    </div>
                 </div>
             </div>
         </>
